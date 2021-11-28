@@ -6,9 +6,6 @@
 
 #include <cstring>
 
-// https://stackoverflow.com/questions/8755471/x11-wait-for-and-get-clipboard-text
-// https://stackoverflow.com/questions/27378318/c-get-string-from-clipboard-on-linux/44992938#44992938
-
 #define CLIPBOARD_MONITOR_PLUGIN(obj) \
   (G_TYPE_CHECK_INSTANCE_CAST((obj), clipboard_monitor_plugin_get_type(), \
                               ClipboardMonitorPlugin))
@@ -35,8 +32,10 @@ static void clipboard_monitor_plugin_handle_method_call(
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
   } else if (strcmp(method, "monitorClipboard") == 0) {
     printf("monitorClipboard\n");
+    response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_null()));
   } else if (strcmp(method, "stopMonitoringClipboard") == 0) {
     printf("stopMonitoringClipboard\n");
+    response = FL_METHOD_RESPONSE(fl_method_success_response_new(fl_value_new_null()));
   } else {
     response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
   }
