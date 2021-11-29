@@ -4,6 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
+                "/snap/flutter/111/usr/include",
                 "/snap/flutter/111/usr/include/gtk-3.0"
             ],
             "defines": [],
